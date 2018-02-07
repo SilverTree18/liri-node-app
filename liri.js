@@ -28,6 +28,8 @@ var spotify = new Spotify({
 var commandArray = process.argv.slice(3);
 var command = commandArray.join(" ");
 
+var doThis = process.argv[2];
+
 switch(process.argv[2]){
     case 'my-tweets':
 
@@ -93,31 +95,31 @@ function getMusic() {
 };
 
 function getMovie() {
-  if (!command ) {
-    command = "Mr. Nobody";
-}
+       if (!command ) {
+       command = "Mr. Nobody";
+      }
   var queryURL = "https://www.omdbapi.com/?t=" + command + "&y=&plot=short&apikey=trilogy";
 
 
-  // console.log(queryURL);
+console.log(queryURL);
   
-request(queryURL), function (error, response, body) {
+request(queryURL ,function (error, response, body) {
   if (!error && response.statusCode === 200) {
 
-var movie = JSON.parse(body);
+ var movie = JSON.parse(body);
   //     console.log(data.repsonse);
  console.log(movie.Title);
-  //         // console.log(data.response.Year);
-  //         // console.log(data.response.imdbRating);
-  //         // console.log(data.response.Ratings[1].Value);
-  //         // console.log(data.response.Country);
-  //         // console.log(data.response.Language);
-  //         // console.log(data.response.Plot);
-  //         // console.log(data.response.Plot);
+          console.log(movie.Year);
+          console.log(movie.imdbRating);
+          console.log(movie.Ratings[1].Value);
+          console.log(movie.Country);
+          console.log(movie.Language);
+          console.log(movie.Plot);
+          console.log(movie.Actors);
 
 
 }
-}
+});
 };
 
 function doWhat(txt) {
@@ -129,13 +131,12 @@ function doWhat(txt) {
 
   // Then split it by commas (to make it more readable)
   var dataArr = data.split(",");
-
-
-
-
+          doThis = dataArr[0];
+          command = dataArr[1];
+          
 
   // We will then re-display the content as an array for later use.
-  console.log(dataArr);
+getMusic(doThis, command);
 
 });
   };
