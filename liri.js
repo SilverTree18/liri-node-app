@@ -108,14 +108,14 @@ request(queryURL ,function (error, response, body) {
 
  var movie = JSON.parse(body);
   //     console.log(data.repsonse);
- console.log(movie.Title);
-          console.log(movie.Year);
-          console.log(movie.imdbRating);
-          console.log(movie.Ratings[1].Value);
-          console.log(movie.Country);
-          console.log(movie.Language);
-          console.log(movie.Plot);
-          console.log(movie.Actors);
+          console.log("Movie: " + movie.Title);
+          console.log("Year: " + movie.Year);
+          console.log("IMBD Rating: " + movie.imdbRating);
+          console.log("Rotten Tomatoes: " + movie.Ratings[1].Value);
+          console.log("Country Produced: " + movie.Country);
+          console.log("Language: " + movie.Language);
+          console.log("Plot: " + movie.Plot);
+          console.log("Actors: " + movie.Actors);
 
 
 }
@@ -135,16 +135,10 @@ function doWhat(txt) {
           command = dataArr[1];
           
 
-  // We will then re-display the content as an array for later use.
+
 getMusic(doThis, command);
 
 });
   };
 
-// var result = 0;
-
-//     // Loop through those numbers and add them together to get a sum.
-//     for (var i = 2; i < data.length; i++) {
-//       if (process.argv.data[i]) {
-//         result += process.argv.data[i];
 
